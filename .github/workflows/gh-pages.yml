@@ -1,42 +1,35 @@
-
 name: Build and deploy to GitHub Pages
 
-# Run on pushes to main (change branch name if required)
 on:
   push:
     branches:
       - master
-
-permissions:
-  contents: read      # allow checkout
-  pages: write        # allow publishing to GitHub Pages
-  id-token: write     # required by some actions; safe to include
+  workflow_dispatch: {}
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          persist-credentials: true
 
-      - name: Use Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'   # change if you prefer another LTS
+          node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build
         run: npm run build
-        # Vite outputs to ./dist by default
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          # optional: publish_branch: gh-pages    # default is gh-pages
+          branch: gh-pages        # the branch the action will push to
+          folder: dist            # folder to deploy
+          clean: true
