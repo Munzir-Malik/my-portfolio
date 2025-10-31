@@ -1,29 +1,21 @@
 name: Build and deploy to GitHub Pages
 
-# run on pushes to your default branch
 on:
   push:
     branches:
-      - main
       - master
 
-# grant explicit token permissions required for pushing / pages
 permissions:
-  contents: write    # allow pushing commits
-  pages: write       # allow interacting with GitHub Pages (optional but recommended)
-  id-token: write    # sometimes required for some actions
+  contents: write   # <-- allow the action to push to gh-pages
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: true   # important so the job can push back using GITHUB_TOKEN
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -37,7 +29,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages          # branch to deploy to
-          folder: dist              # folder to deploy
-          clean: true
-          token: ${{ secrets.GITHUB_TOKEN }}   # ensure the action uses the workflow token with write perms
+          branch: gh-pages
+          folder: dist
