@@ -407,7 +407,7 @@ const translations = {
     hero: {
       eyebrow: 'Hello — I’m',
       subtitle:
-        'I am a programmer with a strong background in graphic design, having 5 years of experience creating designs for social media, branding, and advertisements. I combine design and programming to build creative, functional solutions while studying Information Systems at university.',
+        'I am a programmer with a strong background in graphic design, having 5 years of experience creating designs for social media, branding, and advertisements. I combine design and programming to build creative, functional solutions while studying Computer Technical Engineering at university.',
       viewWork: 'View my work',
       featured: 'Featured project',
     },
@@ -417,7 +417,7 @@ const translations = {
       heading: 'About me',
       p1:
         'I am a programmer with a strong background in graphic design, having 5 years of experience in creating designs for social media, branding, and advertisements. I have completed several online courses and earned certifications in graphic design, which helped me improve my skills.',
-      p2: 'Currently, I am a university student studying Information Systems. I am passionate about combining my design expertise with programming to create creative and functional solutions.',
+      p2: 'Currently, I am a university student studying Computer Technical Engineering. I am passionate about combining my design expertise with programming to create creative and functional solutions.',
       educationHeading: 'Education in graphic field',
       edu1: 'Graphic Design, by University of Colorado Boulder.',
       edu2: 'Fundamentals of Graphic Design, by California Institute of the Arts.',
@@ -453,7 +453,7 @@ const translations = {
     hero: {
       eyebrow: 'مرحبًا — أنا',
       subtitle:
-        'أعمل كمبرمج ولدي خلفية قوية في التصميم الجرافيكي، مع خبرة 5 سنوات في إنشاء تصاميم لوسائل التواصل الاجتماعي والعلامات التجارية والإعلانات. أدمج التصميم والبرمجة لابتكار حلول إبداعية وعملية أثناء دراستي لنظم المعلومات في الجامعة.',
+        'أعمل كمبرمج ولدي خلفية قوية في التصميم الجرافيكي، مع خبرة 5 سنوات في إنشاء تصاميم لوسائل التواصل الاجتماعي والعلامات التجارية والإعلانات. أدمج التصميم والبرمجة لابتكار حلول إبداعية وعملية أثناء دراستي لهندسة تقنيات الحاسوب في الجامعة.',
       viewWork: 'عرض أعمالي',
       featured: 'المشروع المميز',
     },
@@ -463,7 +463,7 @@ const translations = {
       heading: 'نبذة عني',
       p1:
         'أنا مبرمج ولدي خلفية قوية في التصميم الجرافيكي، أمتلك 5 سنوات من الخبرة في إنشاء تصاميم لوسائل التواصل الاجتماعي والعلامات التجارية والإعلانات. أنهيت عدة دورات عبر الإنترنت وحصلت على شهادات في التصميم الجرافيكي مما ساعدني على تحسين مهاراتي.',
-      p2: 'حاليًا أنا طالب جامعي أدرس نظم المعلومات. أشعر بالشغف لربط خبرتي في التصميم بالبرمجة لإنشاء حلول مبتكرة وعملية.',
+      p2: 'حاليًا أنا طالب جامعي أدرس هندسة تقنيات الحاسوب. أشعر بالشغف لربط خبرتي في التصميم بالبرمجة لإنشاء حلول مبتكرة وعملية.',
       educationHeading: 'التعليم في مجال الجرافيك',
       edu1: 'تصميم جرافيك، جامعة كولورادو بولدر.',
       edu2: 'أساسيات التصميم الجرافيكي، معهد كاليفورنيا للفنون.',
