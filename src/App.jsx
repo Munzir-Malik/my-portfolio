@@ -1,3 +1,4 @@
+// src/App.jsx
 import React, { useEffect, useMemo, useState, useCallback, createContext, useContext } from 'react';
 import { createRoot } from 'react-dom/client';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -49,8 +50,9 @@ import realTornado from './assets/images/designs/real-world/Tornado.jpg';
 /* profile photo */
 import profilePic from './assets/images/profile/my-pic.png';
 
-/* resume */
+/* resume: english + arabic */
 import resumePdf from './assets/cv/munzir-malik.pdf';
+import resumePdfAr from './assets/cv/munzir-malik-ar.pdf';
 
 /* -------------------- PROJECTS (one per image) --------------------
    Each project includes an `i18n` field with `en` and `ar` copies for:
@@ -400,12 +402,12 @@ const PROJECTS = [
 /* -------------------- TRANSLATIONS: keys for EN + AR (app UI) -------------------- */
 const translations = {
   en: {
-    header: { name: 'Munzir Malik', role: 'Senior Programmer & Graphic Designer' },
+    header: { name: 'Munzir Malik', role: 'Programmer & Graphic Designer' },
     nav: { work: 'Work', about: 'About', contact: 'Contact', resume: 'Resume' },
     hero: {
       eyebrow: 'Hello — I’m',
       subtitle:
-        'I am a senior programmer with a strong background in graphic design, having 5 years of experience creating designs for social media, branding, and advertisements. I combine design and programming to build creative, functional solutions while studying Information Systems at university.',
+        'I am a programmer with a strong background in graphic design, having 5 years of experience creating designs for social media, branding, and advertisements. I combine design and programming to build creative, functional solutions while studying Information Systems at university.',
       viewWork: 'View my work',
       featured: 'Featured project',
     },
@@ -414,7 +416,7 @@ const translations = {
     about: {
       heading: 'About me',
       p1:
-        'I am a senior programmer with a strong background in graphic design, having 5 years of experience in creating designs for social media, branding, and advertisements. I have completed several online courses and earned certifications in graphic design, which helped me improve my skills.',
+        'I am a programmer with a strong background in graphic design, having 5 years of experience in creating designs for social media, branding, and advertisements. I have completed several online courses and earned certifications in graphic design, which helped me improve my skills.',
       p2: 'Currently, I am a university student studying Information Systems. I am passionate about combining my design expertise with programming to create creative and functional solutions.',
       educationHeading: 'Education in graphic field',
       edu1: 'Graphic Design, by University of Colorado Boulder.',
@@ -446,12 +448,12 @@ const translations = {
   },
 
   ar: {
-    header: { name: 'منذر مالك', role: 'مبرمج أول ومصمم جرافيك' },
+    header: { name: 'منذر مالك', role: 'مبرمج ومصمم جرافيك' },
     nav: { work: 'الأعمال', about: 'نبذة', contact: 'اتصل', resume: 'السيرة الذاتية' },
     hero: {
       eyebrow: 'مرحبًا — أنا',
       subtitle:
-        'أعمل كمبرمج أول ولدي خلفية قوية في التصميم الجرافيكي، مع خبرة 5 سنوات في إنشاء تصاميم لوسائل التواصل الاجتماعي والعلامات التجارية والإعلانات. أدمج التصميم والبرمجة لابتكار حلول إبداعية وعملية أثناء دراستي لنظم المعلومات في الجامعة.',
+        'أعمل كمبرمج ولدي خلفية قوية في التصميم الجرافيكي، مع خبرة 5 سنوات في إنشاء تصاميم لوسائل التواصل الاجتماعي والعلامات التجارية والإعلانات. أدمج التصميم والبرمجة لابتكار حلول إبداعية وعملية أثناء دراستي لنظم المعلومات في الجامعة.',
       viewWork: 'عرض أعمالي',
       featured: 'المشروع المميز',
     },
@@ -460,7 +462,7 @@ const translations = {
     about: {
       heading: 'نبذة عني',
       p1:
-        'أنا مبرمج أول ولدي خلفية قوية في التصميم الجرافيكي، أمتلك 5 سنوات من الخبرة في إنشاء تصاميم لوسائل التواصل الاجتماعي والعلامات التجارية والإعلانات. أنهيت عدة دورات عبر الإنترنت وحصلت على شهادات في التصميم الجرافيكي مما ساعدني على تحسين مهاراتي.',
+        'أنا مبرمج ولدي خلفية قوية في التصميم الجرافيكي، أمتلك 5 سنوات من الخبرة في إنشاء تصاميم لوسائل التواصل الاجتماعي والعلامات التجارية والإعلانات. أنهيت عدة دورات عبر الإنترنت وحصلت على شهادات في التصميم الجرافيكي مما ساعدني على تحسين مهاراتي.',
       p2: 'حاليًا أنا طالب جامعي أدرس نظم المعلومات. أشعر بالشغف لربط خبرتي في التصميم بالبرمجة لإنشاء حلول مبتكرة وعملية.',
       educationHeading: 'التعليم في مجال الجرافيك',
       edu1: 'تصميم جرافيك، جامعة كولورادو بولدر.',
@@ -486,7 +488,7 @@ const translations = {
       email: 'munzirmmalik@gmail.com',
       send: 'إرسال الرسالة',
     },
-    footer: { copyright: 'مصنوع بحب ❤️', privacy: 'الخصوصية', instagram: 'إنستاغрам', github: 'جيت هب', linkedin: 'لينكدإن' },
+    footer: { copyright: 'مصنوع بحب ❤️', privacy: 'الخصوصية', instagram: 'إنستاغرام', github: 'جيت هب', linkedin: 'لينكدإن' },
     modal: { openImage: 'افتح الصورة', close: 'إغلاق' },
     lang: { en: 'EN', ar: 'ع' },
   },
@@ -609,9 +611,21 @@ function LanguageSwitcher() {
 
 
 /* Header */
-function Header({ onContact }) {
+function Header({ onContact, darkMode, setDarkMode }) {
   const [open, setOpen] = useState(false);
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+
+  // compute resume link based on language
+  const resumeHref = lang === 'ar' ? resumePdfAr : resumePdf;
+
+  // whatsapp contact helper
+  const phone = '249121312900';
+  const openWhatsApp = () => {
+    // use contact description as a short message (localized), fallback to simple greeting
+    const msg = encodeURIComponent(t('contact.desc') || 'Hello');
+    const url = `https://wa.me/${phone}?text=${msg}`;
+    window.open(url, '_blank', 'noopener');
+  };
 
   // close drawer on route/hash change or Escape
   useEffect(() => {
@@ -637,8 +651,9 @@ function Header({ onContact }) {
         <nav className={`nav ${open ? 'open' : ''}`} aria-label="Main navigation">
           <a href="#work" className="nav-link">{t('nav.work')}</a>
           <a href="#about" className="nav-link">{t('nav.about')}</a>
-          <a href="#contact" className="nav-link" onClick={(e) => { e.preventDefault(); onContact(); }}>{t('nav.contact')}</a>
-          <a href={resumePdf} className="btn-resume" target="_blank" rel="noopener noreferrer">{t('nav.resume')}</a>
+          {/* Contact now opens WhatsApp */}
+          <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); openWhatsApp(); }}>{t('nav.contact')}</a>
+          <a href={resumeHref} className="btn-resume" target="_blank" rel="noopener noreferrer">{t('nav.resume')}</a>
         </nav>
 
         <div className="header-actions">
@@ -652,6 +667,21 @@ function Header({ onContact }) {
             <div className="lang-inline">
               <LanguageSwitcher />
             </div>
+
+            {/* Dark mode toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              aria-pressed={!!darkMode}
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="px-3 py-1 rounded-md border transition focus:outline-none"
+              style={{
+                backgroundColor: darkMode ? 'var(--accent-1)' : '#fff',
+                color: darkMode ? '#fff' : 'var(--accent-1)',
+                borderColor: 'rgba(7,16,41,0.06)',
+              }}
+            >
+              {darkMode ? '🌙' : '☀️'}
+            </button>
           </div>
 
           {/* Mobile menu button (always visible on small screens) */}
@@ -684,8 +714,8 @@ function Header({ onContact }) {
           <nav className="mobile-menu-list">
             <a href="#work" className="mobile-nav-link" onClick={() => setOpen(false)}>{t('nav.work')}</a>
             <a href="#about" className="mobile-nav-link" onClick={() => setOpen(false)}>{t('nav.about')}</a>
-            <a href="#contact" className="mobile-nav-link" onClick={(e) => { e.preventDefault(); setOpen(false); onContact(); }}>{t('nav.contact')}</a>
-            <a href={resumePdf} className="mobile-nav-link" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>{t('nav.resume')}</a>
+            <a href="#" className="mobile-nav-link" onClick={(e) => { e.preventDefault(); setOpen(false); openWhatsApp(); }}>{t('nav.contact')}</a>
+            <a href={resumeHref} className="mobile-nav-link" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>{t('nav.resume')}</a>
           </nav>
 
           <div className="mobile-drawer-footer">
@@ -693,7 +723,23 @@ function Header({ onContact }) {
               <LanguageSwitcher />
             </div>
 
-            <div className="mobile-socials">
+            <div style={{ marginTop: 8 }}>
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                aria-pressed={!!darkMode}
+                aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                className="px-3 py-1 rounded-md border transition focus:outline-none"
+                style={{
+                  backgroundColor: darkMode ? 'var(--accent-1)' : '#fff',
+                  color: darkMode ? '#fff' : 'var(--accent-1)',
+                  borderColor: 'rgba(7,16,41,0.06)',
+                }}
+              >
+                {darkMode ? '🌙 Dark' : '☀️ Light'}
+              </button>
+            </div>
+
+            <div className="mobile-socials" style={{ marginTop: 12 }}>
               <a href="https://github.com/Munzir-Malik" aria-label="github" target="_blank" rel="noopener noreferrer"><Github /></a>
               <a href="https://www.linkedin.com/in/munzirmalik/" aria-label="linkedin" target="_blank" rel="noopener noreferrer"><Linkedin /></a>
             </div>
@@ -877,7 +923,9 @@ function FilteredGallery({ projects, onOpen }) {
 
 /* About: biography, education, tools and profile pic */
 function About() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const resumeHref = lang === 'ar' ? resumePdfAr : resumePdf;
+
   return (
     <section id="about" className="about">
       <div className="about-inner container-center">
@@ -908,7 +956,7 @@ function About() {
           </ul>
 
           <div style={{ marginTop: 12 }}>
-            <a href={resumePdf} className="btn-outline" target="_blank" rel="noopener noreferrer">
+            <a href={resumeHref} className="btn-outline" target="_blank" rel="noopener noreferrer">
               {t('about.downloadResume')}
             </a>
           </div>
@@ -1010,6 +1058,23 @@ export default function App() {
   const [selected, setSelected] = useState(null);
   const [contactOpen, setContactOpen] = useState(false);
 
+  // dark mode: initialize from localStorage or prefers-color-scheme
+  const [darkMode, setDarkMode] = useState(() => {
+    try {
+      const saved = localStorage.getItem('site_theme');
+      if (saved) return saved === 'dark';
+    } catch (e) { }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return true;
+    return false;
+  });
+
+  // apply class and persist
+  useEffect(() => {
+    if (darkMode) document.documentElement.classList.add('dark');
+    else document.documentElement.classList.remove('dark');
+    try { localStorage.setItem('site_theme', darkMode ? 'dark' : 'light'); } catch (e) { }
+  }, [darkMode]);
+
   useEffect(() => {
     document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
     const onResize = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
@@ -1020,7 +1085,7 @@ export default function App() {
   return (
     <I18nProvider>
       <div className="app-root">
-        <Header onContact={() => setContactOpen(true)} />
+        <Header onContact={() => setContactOpen(true)} darkMode={darkMode} setDarkMode={setDarkMode} />
 
         <main>
           <Hero onOpenProject={(p) => setSelected(p)} />
